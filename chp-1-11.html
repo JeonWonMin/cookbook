@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+<title></title>
+<meta name="description" content="study javascript">
+<style type="text/css">
+</style>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script>
+	var url = window.location.pathname;
+	var filename = url.substring(url.lastIndexOf('/')+1),
+	    splits = filename.split("-"),
+        splits2 = splits[2].split(".");
+	
+	var titleName = splits[1] + "번째 챕터 " + splits2[0] + "번째 예제";
+	
+	document.getElementsByTagName('title')[0].innerHTML = getTitle();
+	
+	function getTitle() {
+		return titleName;
+	}
+</script>
+</head>
+<html>
+<body>
+    <div id="result"></div>
+	<script>
+	// 문자열 왼쪽 또는 오른쪽에 주어진 문자를 채워 넣어야 합니다.
+	/* 1. 문자열 길이 확인
+	   2. 주어진 문자열을 필요한 만큼 반복하여 원래 문자열에 덧붙이기(오른쪽 채워 넣기) or 원래 문자열 제일 앞에 추가(왼쪽 채워 넣기) */
+	
+	var prefLineLength = 20;
+	var oldStr = "This is a string";
+	
+	var diff = prefLineLength - oldStr.length;
+	var filter = "&nbsp;";
+	
+	for(var i = 0; i < diff; i++) {
+    	oldStr = filter + oldStr;
+	}
+	
+	document.getElementById("result").innerHTML = oldStr;
+	
+	// =========== OR =========== //
+	
+	var num = 123.55;
+	var item = document.getElementById("item");
+	
+	// 텍스트 노드와 문단 요소 생성
+	var txt = document.createTextNode(num);
+	var p = document.createElement("p");
+	
+	// 텍스트 노드를 문단에 추가
+	p.appendChild(txt);
+	p.setAttribute("class", "rightformatted");
+	
+	// 문단을 문서에 추가
+	item.appendChild(p);
+	
+	</script>
+</body>
+</html>
