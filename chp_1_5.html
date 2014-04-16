@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+<title></title>
+<meta name="description" content="study javascript">
+<style type="text/css">
+</style>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script>
+	var url = window.location.pathname;
+	var filename = url.substring(url.lastIndexOf('/')+1),
+	    splits = filename.split("_"),
+        splits2 = splits[2].split(".");
+	
+	var titleName = splits[1] + "번째 챕터 " + splits2[0] + "번째 예제";
+	
+	document.getElementsByTagName('title')[0].innerHTML = getTitle();
+	
+	function getTitle() {
+		return titleName;
+	}
+</script>
+</head>
+<html>
+<body>
+    
+	<script>
+	// 여러 개의 문장으로 이루어진 문자열이 있고, 그 중 하나의 문장에 어떤 목록이 포함되어 있음. 목록은 콜론(:)으로 시작하고 마침표(.)로 끝남. 문자열에서 이 목록을 추출하고 싶음~
+	/* 1. indexOf 메서드를 사용하여 콜론의 위치를 알아냄. 
+	   2. indexOf 메서드를 사용하여 콜론 다음에 오는 마침표의 위치를 찾음.
+	   3. 두 개의 위치를 substring 메서드와 함께 사용하여 문자열 추출 */
+	   
+	var sentence = "This is one sentence. This is a sentence with a list of items: cherries, oranges, apples, bananas.";
+	var start = sentence.indexOf( ":" );
+	var end = sentence.indexOf( ".", start+1 );
+	
+	var list = sentence.substring( start + 1, end); // substring 메서드의 첫 번째 인수와 두 번째 인수는 각각 추출할 문자열의 시작돠 끝 위치를 나타내는 인덱스값.
+	
+	console.log(list);
+	
+	var fruits = list.split(","); // 값의 배열
+	
+	console.log(fruits);
+    
+	</script>
+</body>
+</html>
