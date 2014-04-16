@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+<title></title>
+<meta name="description" content="study javascript">
+<style type="text/css">
+</style>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script>
+	var url = window.location.pathname;
+	var filename = url.substring(url.lastIndexOf('/')+1),
+	    splits = filename.split("-"),
+        splits2 = splits[2].split(".");
+	
+	var titleName = splits[1] + "번째 챕터 " + splits2[0] + "번째 예제";
+	
+	document.getElementsByTagName('title')[0].innerHTML = getTitle();
+	
+	function getTitle() {
+		return titleName;
+	}
+</script>
+</head>
+<html>
+<body>
+    
+	<script>
+	// 변수가 정의되어 있으며 문자열이 들어 있는지 혹은 비어 있는지 확인하고 싶음~
+	// 변수가 존재하고 문자열이며 0보다 큰 길이를 가지고 있으면 참
+    
+	</script>
+</body>
+</html>
