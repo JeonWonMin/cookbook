@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+<title></title>
+<meta name="description" content="study javascript">
+<style type="text/css">
+</style>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script>
+	var url = window.location.pathname;
+	var filename = url.substring(url.lastIndexOf('/')+1),
+	    splits = filename.split("-"),
+        splits2 = splits[2].split(".");
+	
+	var titleName = splits[1] + "번째 챕터 " + splits2[0] + "번째 예제";
+	
+	document.getElementsByTagName('title')[0].innerHTML = getTitle();
+	
+	function getTitle() {
+		return titleName;
+	}
+</script>
+</head>
+<html>
+<body>
+    <div id="result1"></div>
+	<script>
+	// 줄 바꿈 문자와 같은 특수 문자를 문자열에 삽입하고 싶구나~
+	/* 1. 문자열에서 이스케이프 문자열을 사용 */
+	
+	var resultString = "<p>This page \u00A9 shelley Powers</p>";
+	
+	// 페이지에 출력
+	var blk = document.getElementById("result1");
+	blk.innerHTML = resultString;
+	
+	// 가장 일반적인 사용의 예 : 문자열 안에서 큰따옴표 혹은 작은따옴표를 포함할 때!
+	var newString = 'You can\'t use single quotes in a string surrounded by single quotes';
+	
+	</script>
+</body>
+</html>
