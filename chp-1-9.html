@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+<title></title>
+<meta name="description" content="study javascript">
+<style type="text/css">
+</style>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script>
+	var url = window.location.pathname;
+	var filename = url.substring(url.lastIndexOf('/')+1),
+	    splits = filename.split("-"),
+        splits2 = splits[2].split(".");
+	
+	var titleName = splits[1] + "번째 챕터 " + splits2[0] + "번째 예제";
+	
+	document.getElementsByTagName('title')[0].innerHTML = getTitle();
+	
+	function getTitle() {
+		return titleName;
+	}
+</script>
+</head>
+<html>
+<body>
+    <textarea id="test">test test test test test test test test</textarea>
+    <div id="result"></div>
+	<script>
+	// textarea의 콘텐츠를 줄별로 처리하고 싶다!
+	/* 1. String 객체의 split 메서드를 줄 바꿈 이스케이프 문자열(\n)과 함께 사용하면 textarea의 콘텐츠를 줄별로 분리할 수 있습니다. */
+	
+	var txtBox = document.getElementById("test");
+	var lines = txtBox.value.split("\n");
+	
+	// 내용을 HTML 버전으로 변경
+	var resultString = "<p>";
+	for(var i = 0; i < lines.length; i++) {
+    	resultString += lines[i] + "<br>";
+	}
+	
+	resultString += "</p>"
+	
+	// 페이지에 출력
+	var blk = document.getElementById("result");
+	blk.innerHTML = resultString;
+	
+	</script>
+</body>
+</html>
