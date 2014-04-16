@@ -24,7 +24,27 @@
 <body>
     
 	<script>
-	// 	
+	// 대상 문자열 안에 특정한 부분 문자열이 있는지 찾고 싶어요~
+	// "문자열에서 부분 문자열 검색하기
+	var testValue = "This is the Cookbook's test string"	;
+	var subsValue = "Cookbook";
+	
+	var iValue = testValue.indexOf(subsValue); // 부분 문자열의 위치인 12를 반환
+	
+	if ( iValue != -1) // 찾는 문자열이 존재하므로 성공
+	
+	/*  #indexOf 메서드는 인덱스 혹은 부분 문자열의 첫 번째 글자가 있는 위치를 나타내는 '숫자' 를 반환함. 첫번째 문자열의 인덱스는 '0'
+         indexOf 메서드는 두 개의 인수를 가짐. 첫번째는 찾고자 하는 부분 문자열, 두번째는 검색을 시작할 위치의 인덱스값(생략가능)  */
+
+    var tstString = "This apple is my apple";
+    var iValue = tstString.indexOf("apple", 10); // 두 번째 문자열의 인덱스 '17'을 반환
+    
+    /*  #indexOf 메서드는 왼쪽에서 오른쪽으로 탐색! 반대방향으로 탐색을 원할 때....
+        lastIndexOf 사용, 가장 마지막에 나타난 부분 문자열의 인덱스 위치 반환  */
+
+    var tstString = "This apple is my apple";
+    var iValue = tstString.lastIndexOf("apple"); // 마지막에 나타난 부분 문자열의 위치 17을 반환
+    
 	</script>
 </body>
 </html>
