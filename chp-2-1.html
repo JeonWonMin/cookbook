@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+<title></title>
+<meta name="description" content="study javascript">
+<style type="text/css">
+</style>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script>
+	var url = window.location.pathname;
+	var filename = url.substring(url.lastIndexOf('/')+1),
+	    splits = filename.split("-"),
+        splits2 = splits[2].split(".");
+	
+	var titleName = splits[1] + "번째 챕터 " + splits2[0] + "번째 예제";
+	
+	document.getElementsByTagName('title')[0].innerHTML = getTitle();
+	
+	function getTitle() {
+		return titleName;
+	}
+</script>
+</head>
+<html>
+<body>
+    <div id="result"></div>
+	<script>
+	// 2장 정규표현식 사용하기 //
+	
+	// 어떤 문자열이 검색하고자 하는 문자열을 포함하고 있는지 확인하고 싶다!
+	/* 1. RegExp 객체의 test메서드 사용 */
+	
+	var cookbookString = new Array();
+	
+	cookbookString[0] = "Joe's Cooking Book";
+	cookbookString[1] = "Sam's Cooking Book";
+	cookbookString[2] = "Javascript CookBook";
+	cookbookString[3] = "Javascript BookCook";
+	
+	// 검색 패턴
+	var pattern = /Cook.*Book/;
+	for (var i = 0; i < cookbookString.length; i++) {
+        alert(cookbookString[i] + " " + pattern.test(cookbookString[i]));
+	}
+	
+	</script>
+</body>
+</html>
