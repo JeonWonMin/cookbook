@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+<title></title>
+<meta name="description" content="study javascript">
+<style type="text/css">
+</style>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script>
+	var url = window.location.pathname;
+	var filename = url.substring(url.lastIndexOf('/')+1),
+	    splits = filename.split("-"),
+        splits2 = splits[2].split(".");
+	
+	var titleName = splits[1] + "번째 챕터 " + splits2[0] + "번째 예제";
+	
+	document.getElementsByTagName('title')[0].innerHTML = getTitle();
+	
+	function getTitle() {
+		return titleName;
+	}
+</script>
+</head>
+<html>
+<body>
+    <div id="pattern">789-23-1369</div>
+	<script>
+	// 2장 정규표현식 사용하기 //
+	
+	// 주어진 문자열이 미국 사회보장번호(미국에서 납세자를 구분할 때 사용하는 번호, 우리나라의 주민등록번호와 비슷함) 형식에 맞는지 확인해야 하지.
+	/* 1. String 객체의 match 메서드와 정규표현식을 사용하면 문자열이 사회보장번호인지 확인 가능 */
+	
+	var ssn = document.getElementById("pattern").innerHTML;
+	
+	console.log(ssn);
+	
+	var pattern = /^\d{3}-?\d{2}-?\d{4}$/;
+	if (ssn.match(pattern)) {
+        alert("OK");	
+	}else{
+    	alert("Not OK");
+	}
+	</script>
+</body>
+</html>
