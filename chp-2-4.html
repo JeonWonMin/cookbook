@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+<title></title>
+<meta name="description" content="study javascript">
+<style type="text/css">
+</style>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script>
+	var url = window.location.pathname;
+	var filename = url.substring(url.lastIndexOf('/')+1),
+	    splits = filename.split("-"),
+        splits2 = splits[2].split(".");
+	
+	var titleName = splits[1] + "번째 챕터 " + splits2[0] + "번째 예제";
+	
+	document.getElementsByTagName('title')[0].innerHTML = getTitle();
+	
+	function getTitle() {
+		return titleName;
+	}
+</script>
+</head>
+<html>
+<body>
+    <div id="result"></div>
+	<script>
+	// 2장 정규표현식 사용하기 //
+	
+	// 어떤 문자열 안에서 패턴과 일치하는 부분을 모두 찾고 싶어요.
+	/* 1. RegExp.exec 메서드를 전역 플래그(global flag) g와 함께 사용하면 패턴에 일치하는 모든 부분 검색가능. */
+	
+	var searchString = "Now is the time and this is the time and that is the time";
+	var pattern = /t\w*e/g;
+	var matchArray;
+	
+	var str = " ";
+	while((matchArray = pattern.exec(searchString)) != null) {
+    	str += "at" + matchArray.index + " we found " + matchArray[0] + "<br>";
+	}
+	document.getElementById("result").innerHTML = str;
+	</script>
+</body>
+</html>
