@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+<title></title>
+<meta name="description" content="study javascript">
+<style type="text/css">
+#searchSubmit{
+    background-color: #ff0;
+    width: 200px;
+    text-align: center;
+    padding: 10px;
+    border: 2px inset #ccc;
+}
+.found{
+    background-color: #ff0;
+}
+</style>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script>
+	var url = window.location.pathname;
+	var filename = url.substring(url.lastIndexOf('/')+1),
+	    splits = filename.split("-"),
+        splits2 = splits[2].split(".");
+	
+	var titleName = splits[1] + "번째 챕터 " + splits2[0] + "번째 예제";
+	
+	document.getElementsByTagName('title')[0].innerHTML = getTitle();
+	
+	function getTitle() {
+		return titleName;
+	}
+</script>
+</head>
+<html>
+<body>
+    <div id="searchResult"></div>
+	<script>
+	// 2장 정규표현식 사용하기 //
+	
+	// 마크업 예제를 웹 페이지에 붙여 넣되, 마크업을 이스케이프하여 콘텐츠를 해석하지 않고 꺾은 괄호를 그대로 출력하고 싶어요~
+	// 정규표현식을 사용하여 꺾은 괄호를 명명된 엔티티 &lt; 와 &gt;로 바꾸면 됨!!!
+	
+	var pieceOfHtml = "<p>This is a <span>paragraph</span></p>";
+	pieceOfHtml = pieceOfHtml.replace(/</g, "&lt;");
+	pieceOfHtml = pieceOfHtml.replace(/>/g, "&gt;");
+	document.getElementById("searchResult").innerHTML = pieceOfHtml;
+	
+	</script>
+</body>
+</html>

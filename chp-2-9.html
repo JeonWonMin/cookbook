@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+<title></title>
+<meta name="description" content="study javascript">
+<style type="text/css">
+#searchSubmit{
+    background-color: #ff0;
+    width: 200px;
+    text-align: center;
+    padding: 10px;
+    border: 2px inset #ccc;
+}
+.found{
+    background-color: #ff0;
+}
+</style>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script>
+	var url = window.location.pathname;
+	var filename = url.substring(url.lastIndexOf('/')+1),
+	    splits = filename.split("-"),
+        splits2 = splits[2].split(".");
+	
+	var titleName = splits[1] + "번째 챕터 " + splits2[0] + "번째 예제";
+	
+	document.getElementsByTagName('title')[0].innerHTML = getTitle();
+	
+	function getTitle() {
+		return titleName;
+	}
+</script>
+</head>
+<html>
+<body>
+    <p>content</p>
+	<script>
+	// 2장 정규표현식 사용하기 //
+	
+	// 정규표현식 문자 그 자체를 검색하자!
+	// 백슬래시를 사용해 패턴 검색 문자를 이스케이프!!!
+	
+	/*
+	var re = /\\d/;
+	var pattern = "\\d{4}";
+	var pattern2 = pattern.replace(re, "\\D");
+	*/
+	window.onload = function() {
+    	
+    	// \d 검색
+    	var re = /\\d/;
+    	var pattern = "\\d{4}";
+    	var str = "I want 1111 to find 3334 certain 5343 things 8484";
+    	var re2 = new RegExp(pattern, "g");
+    	var str1 = str.replace(re2, "****");
+    	alert(str1);
+    	var pattern2 = pattern.replace(re, "\\D");
+    	var re3 = new RegExp(pattern2, "g");
+    	var str2 = str.replace(re3, "****");
+    	alert(str2);
+    	
+	}
+	</script>
+</body>
+</html>

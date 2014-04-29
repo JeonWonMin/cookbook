@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+<title></title>
+<meta name="description" content="study javascript">
+<style type="text/css">
+</style>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script>
+	var url = window.location.pathname;
+	var filename = url.substring(url.lastIndexOf('/')+1),
+	    splits = filename.split("-"),
+        splits2 = splits[2].split(".");
+	
+	var titleName = splits[1] + "번째 챕터 " + splits2[0] + "번째 예제";
+	
+	document.getElementsByTagName('title')[0].innerHTML = getTitle();
+	
+	function getTitle() {
+		return titleName;
+	}
+</script>
+</head>
+<html>
+<body>
+    <div id="result"></div>
+	<script>
+	// 2장 정규표현식 사용하기 //
+	
+	// 패턴에 일치하는 부분 문자열을 다른 문자열로 치환하고 싶음.
+	/* 1. String객체의 replace메소드를 정규표현식과 함께 사용 */
+	
+	var searchString = "Now is the time, this is the time";
+	var re = /t\w{2}e/g;
+	var replacement = searchString.replace(re, "place");
+	alert(replacement);
+	
+	</script>
+</body>
+</html>
