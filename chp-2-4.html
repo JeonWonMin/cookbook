@@ -4,6 +4,18 @@
 <title></title>
 <meta name="description" content="study javascript">
 <style type="text/css">
+#searchSubmit
+{
+    background-color: #ff0;
+    width: 200px;
+    text-align: center;
+    padding: 10px;
+    border: 2px inset #ccc;    
+}
+.found
+{
+    background-color: #ff0;
+}
 </style>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 <script>
@@ -20,9 +32,56 @@
 		return titleName;
 	}
 </script>
+<script>
+//<![CDATA[
+
+window.onload = function() {
+    document.getElementById("searchSubmit").onclick = doSearch;
+}
+
+function doSearch() {
+    // 패턴 구하기
+    var pattern = document.getElementById("pattern").value;
+    var re = new RegExp(pattern, "g");
+    
+    // 문자열 구하기
+    var searchString = document.getElementById("incoming").value;
+    
+    var matchArray;
+    var resultString = "<p>";
+    var first = 0;
+    var last = 0;
+    
+    // 일치하는 부분 검색
+    while( (matchArray = re.exec(searchString)) != null ) {
+        last = matchArray.index;
+        // 일치한 부분의 전체 문자열을 하나로 연결
+        resultString += searchString.substring(first, last);
+        
+        // 일치한 문자열을 클래스로 강조
+        resultString += "<span class='found'>" + matchArray[0] + "</span>";
+        first = re.lastIndex;
+    }
+    
+    // 문자열 종료
+    resultString += searchString.substring(first, searchString.length);
+    resultString += "</p>";
+    
+    // 페이지에 삽입
+    document.getElementById("searchResult").innerHTML = resultString;
+}
+//--><!]]>
+</script>
 </head>
 <html>
 <body>
+    <form id="textsearch">
+    <textarea id="incoming" cols="150" rows="10"></textarea>
+    <p>검색 패턴: <input id="pattern" type="text"></p>
+    </form>
+    <p id="searchSubmit">입력한 패턴으로 검색</p>
+    <div id="searchResult"></div>
+    <!--
     <div id="result"></div>
 	<script>
 	// 2장 정규표현식 사용하기 //
@@ -40,5 +99,6 @@
 	}
 	document.getElementById("result").innerHTML = str;
 	</script>
+	-->
 </body>
 </html>
