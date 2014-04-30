@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+<title></title>
+<meta name="description" content="study javascript">
+<style type="text/css">
+#date{width:100px;padding:10px;background:orange}
+</style>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script>
+	var url = window.location.pathname;
+	var filename = url.substring(url.lastIndexOf('/')+1),
+	    splits = filename.split("-"),
+        splits2 = splits[2].split(".");
+	
+	var titleName = splits[1] + "번째 챕터 " + splits2[0] + "번째 예제";
+	
+	document.getElementsByTagName('title')[0].innerHTML = getTitle();
+	
+	function getTitle() {
+		return titleName;
+	}
+</script>
+</head>
+<html>
+<body>
+    <p id="date">get gap date!</p>
+	<script>
+	// 3장 날짜. 시간 그리고 타이머 //
+	
+	// 두 이벤트 사이에 경과한 시간을 구하고 싶어요...
+	// 첫 번째 이벤트가 발생했을 때 Date 객체를 만들고
+	// 두 번째 이벤트가 발생했을 때 또 다른 Date 객체를 만들어서
+	// 두 번째에서 첫 번째를 빼면 됨!!!
+	
+	var dateElem = document.getElementById("date");
+    
+    var firstDate;
+    window.onload = startTimer;
+    
+    function startTimer() {
+        firstDate = new Date();
+        document.getElementById("date").onclick = doEvent;
+    }
+    
+    function doEvent() {
+        var secondDate = new Date();
+        alert((secondDate - firstDate) / 1000);
+        /*var gapDate;
+        gapDate = (secondDate - firstDate) / 1000;
+        dateElem.innerHTML = gapDate;*/
+    }
+    
+	</script>
+</body>
+</html>

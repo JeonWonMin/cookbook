@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+<title></title>
+<meta name="description" content="study javascript">
+<style type="text/css">
+#dateSubmit{
+    background-color: #ff0;
+    width: 200px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+</style>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script>
+	var url = window.location.pathname;
+	var filename = url.substring(url.lastIndexOf('/')+1),
+	    splits = filename.split("-"),
+        splits2 = splits[2].split(".");
+	
+	var titleName = splits[1] + "번째 챕터 " + splits2[0] + "번째 예제";
+	
+	document.getElementsByTagName('title')[0].innerHTML = getTitle();
+	
+	function getTitle() {
+		return titleName;
+	}
+</script>
+</head>
+<html>
+<body>
+    <!--<div id="date"></div>-->
+    <form>
+        <p>ISO 8601 형식의 날짜 문자열: <input type="text" id="datestring"></p>
+    </form>
+    <div id="dateSubmit">
+        <p>날짜 변환</p>
+    </div>
+    <div id="result"></div>
+	<script>
+	// 3장 날짜. 시간 그리고 타이머 //
+	
+	// ISO 8601 형식의 날짜 문자열을 새로운 Date 객체를 생성할 때 사용할 수 있는 값으로 변환!
+	// ISO 8601 문자열을 해석하여 여러 종류의 날짜값을 얻고, 이를 새로운 자바스크립트 Date 객채를 생성하는데 사용!
+	
+	/*
+	var dateElem = document.getElementById("date");
+	
+	var dtstr = "2009-10-15T14:42:51Z";
+	
+	dtstr = dtstr.replace(/\D/g, " ");
+	var dtcomps = dtstr.split(" ");
+	
+	// ISO 8601 형식의 월은 1부터 시작하지만 Date는 0부터 시작하므로 1을 뺌
+	dtcomps[1]--;
+	
+	var convdt = new Date(Date.UTC(dtcomps[0],dtcomps[1],dtcomps[2],dtcomps[3],dtcomps[4],dtcomps[5]));
+	
+	console.log(dtcomps);
+	
+	console.log(dtcomps[0]);
+	console.log(dtcomps[1]);
+	console.log(dtcomps[2]);
+	console.log(dtcomps[3]);
+	console.log(dtcomps[4]);
+	console.log(dtcomps[5]);
+    
+    dateElem.innerHTML = convdt;
+    */
+    
+    window.onload = function() {
+        document.getElementById("dateSubmit").onclick = convertDate;
+    }
+    
+    function convertDate() {
+        var dtstr = document.getElementById("datestring").value;
+        var convdate = convertISO8601toDate(dtstr);
+        document.getElementById("result").innerHTML = convdate;
+    }
+    
+    function convertISO8601toDate(dtstr) {
+        
+        // 숫자가 아닌 문자를 모두 공백으로 치환
+        dtstr = dtstr.replace(/\D/g, " ");
+        
+        // 문자열 양끝 공백 제거
+        dtstr = dtstr.replace(/\s+$/, " ");
+        
+        // 공백을 기준으로 분리
+        var dtcomps = dtstr.split(" ");
+        
+        // 모든 ISO 8601 날짜가 변환 가능하지는 않음.
+        // 월과 일이 없으면 유효하지 않음.
+        if(dtcomps.length < 3) return "올바르지 않은 형식의 날짜";
+        // 시간 부분이 없으면 0으로 설정
+        if(dtcomps.length < 4) {
+            dtcomps[3] = 0;
+            dtcomps[4] = 0;
+            dtcomps[5] = 0;
+        }
+        
+        // ISO 8601과 Date의 차이를 줄이기 위해 월 수정
+        dtcomps[1]--;
+        
+        var convdt = new Date(Date.UTC(dtcomps[0],dtcomps[1],dtcomps[2],dtcomps[3],dtcomps[4],dtcomps[5]));
+        
+        return convdt.toUTCString();
+        
+    }
+    
+	</script>
+</body>
+</html>

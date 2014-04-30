@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+<title></title>
+<meta name="description" content="study javascript">
+<style type="text/css">
+</style>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script>
+	var url = window.location.pathname;
+	var filename = url.substring(url.lastIndexOf('/')+1),
+	    splits = filename.split("-"),
+        splits2 = splits[2].split(".");
+	
+	var titleName = splits[1] + "번째 챕터 " + splits2[0] + "번째 예제";
+	
+	document.getElementsByTagName('title')[0].innerHTML = getTitle();
+	
+	function getTitle() {
+		return titleName;
+	}
+</script>
+</head>
+<html>
+<body>
+    <p id="date"></p>
+	<script>
+	// 3장 날짜. 시간 그리고 타이머 //
+	
+	// 이벤트 기반한 타임아웃을 만들고 싶어요.
+	
+	var dateElem = document.getElementById("date");
+    
+    window.onload = function() {
+        setTimeout("alert('timeout!')", 3000);
+    }
+    
+	</script>
+</body>
+</html>

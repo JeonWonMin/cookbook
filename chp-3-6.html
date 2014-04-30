@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+<title></title>
+<meta name="description" content="study javascript">
+<style type="text/css">
+
+</style>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script>
+	var url = window.location.pathname;
+	var filename = url.substring(url.lastIndexOf('/')+1),
+	    splits = filename.split("-"),
+        splits2 = splits[2].split(".");
+	
+	var titleName = splits[1] + "번째 챕터 " + splits2[0] + "번째 예제";
+	
+	document.getElementsByTagName('title')[0].innerHTML = getTitle();
+	
+	function getTitle() {
+		return titleName;
+	}
+</script>
+</head>
+<html>
+<body>
+    <p id="date"></p>
+	<script>
+	// 3장 날짜. 시간 그리고 타이머 //
+	
+	// 미래 날짜를 만들고 싶어요
+	// Date 객체의 get과 set메서드를 사용하여 미래 날짜를 만드세요!
+	
+	var dateElem = document.getElementById("date");
+    
+    /*
+    var futureDate = new Date();
+    futureDate.setDate(futureDate.getDate() + 10);
+    */
+    
+    var pastDate = new Date();
+    pastDate.setFullYear(pastDate.getFullYear() - 18);
+    
+    dateElem.innerHTML = pastDate;
+    
+	</script>
+</body>
+</html>

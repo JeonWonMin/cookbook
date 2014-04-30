@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+<title></title>
+<meta name="description" content="study javascript">
+<style type="text/css">
+#searchSubmit{
+    background-color: #ff0;
+    width: 200px;
+    text-align: center;
+    padding: 10px;
+    border: 2px inset #ccc;
+}
+.found{
+    background-color: #ff0;
+}
+</style>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script>
+	var url = window.location.pathname;
+	var filename = url.substring(url.lastIndexOf('/')+1),
+	    splits = filename.split("-"),
+        splits2 = splits[2].split(".");
+	
+	var titleName = splits[1] + "번째 챕터 " + splits2[0] + "번째 예제";
+	
+	document.getElementsByTagName('title')[0].innerHTML = getTitle();
+	
+	function getTitle() {
+		return titleName;
+	}
+</script>
+</head>
+<html>
+<body>
+    <div id="date"></div>
+	<script>
+	// 3장 날짜. 시간 그리고 타이머 //
+	
+	// ISO 8601 표준 형식에 따르는 날짜 문자열이 필요함!
+	
+	var dateElem = document.getElementById("date");
+	
+	var dt = new Date();
+	
+	// 월을 구하고 1만큼 증가
+	var mnth = dt.getUTCMonth();
+    mnth++;
+    
+    var day = dt.getUTCDate();
+    if (day < 10) day="0" + day;
+    var yr = dt.getUTCFullYear();
+    
+    var hrs = dt.getUTCHours();
+    if (hrs < 10) hrs = "0" + hrs;
+    
+    var min = dt.getUTCMinutes();
+    if (min < 10) min = "0" + min;
+    
+    var secs = dt.getUTCSeconds();
+    if (secs < 10) secs = "0" + secs;
+    
+    var newdate = yr + "-" + mnth + "-" + day + " T " + hrs + ":" + min + ":" + secs + " Z";
+    
+    dateElem.innerHTML = newdate;
+    
+    /*var dt2 = new Date("October 15, 2009 15:10:10");
+    alert(dt2.toISOString());*/
+    
+	</script>
+</body>
+</html>
