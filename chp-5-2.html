@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta charset="utf-8">
+<head>
+<title></title>
+<meta name="description" content="study javascript">
+<style type="text/css">
+</style>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script>
+	var url = window.location.pathname;
+	var filename = url.substring(url.lastIndexOf('/')+1),
+	    splits = filename.split("-"),
+        splits2 = splits[2].split(".");
+	
+	var titleName = splits[1] + "번째 챕터 " + splits2[0] + "번째 예제";
+	
+	document.getElementsByTagName('title')[0].innerHTML = getTitle();
+	
+	function getTitle() {
+		return titleName;
+	}
+</script>
+</head>
+<body>
+    <script>
+    // 5장 배열과 반복문 다루기
+    
+    // 다중 배열(배열로 이루어진 배열)을 만들고 싶어요~
+    
+    // 배열의 길이 설정
+    var arrayLength = 3;
+    
+    // 배열 생성
+    var multiArray = new Array(arrayLength);
+    for(var i = 0; i < multiArray.length; i++) {
+        multiArray[i] = new Array(arrayLength);
+    }
+    
+    // 첫 번째 인덱스의 배열에 원소 추가
+    multiArray[0][0] = "apple";
+    multiArray[0][1] = "banana";
+    multiArray[0][2] = "cherry";
+    
+    // 두 번째
+    multiArray[1][0] = 2;
+    multiArray[1][1] = 56;
+    multiArray[1][2] = 83;
+    
+    // 세 번째
+    multiArray[2][0] = ["test", "again"];
+    multiArray[2][1] = ["Java", "script"];
+    multiArray[2][2] = ["read", "books"];
+    
+    console.log(typeof multiArray);
+    console.log(typeof multiArray[2]);
+    console.log(typeof multiArray[2][2][0]);
+    </script>
+    </body>
+</html>

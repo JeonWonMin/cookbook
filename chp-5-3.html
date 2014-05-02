@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta charset="utf-8">
+<head>
+<title></title>
+<meta name="description" content="study javascript">
+<style type="text/css">
+</style>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script>
+	var url = window.location.pathname;
+	var filename = url.substring(url.lastIndexOf('/')+1),
+	    splits = filename.split("-"),
+        splits2 = splits[2].split(".");
+	
+	var titleName = splits[1] + "번째 챕터 " + splits2[0] + "번째 예제";
+	
+	document.getElementsByTagName('title')[0].innerHTML = getTitle();
+	
+	function getTitle() {
+		return titleName;
+	}
+</script>
+</head>
+<body>
+    <script>
+    // 5장 배열과 반복문 다루기
+    
+    // 배열에서 문자열을 만들고 싶어요~
+    
+    // Array 객체의 내장 메서드 join을 사용하면 배열 원소를 묶어 문자열로 만들 수 있다!!!
+    
+    /*
+    var fruitArray = ["apple", "peach", "lemon", "lime"];
+    var resultString = fruitArray.join("-");
+    */
+    var sum = 0;
+    var numberArray = [1, 2, 3, 4, 5];
+    //var resultString = numberArray.join("+");
+    for(i = 0; i < numberArray.length; i++) {
+        sum += numberArray[i];
+    }
+    console.log(sum);
+    </script>
+    </body>
+</html>
