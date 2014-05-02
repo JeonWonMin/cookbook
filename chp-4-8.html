@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta charset="utf-8">
+<head>
+<title></title>
+<meta name="description" content="study javascript">
+<style type="text/css">
+#elem{
+    width: 400px;
+    height: 200px;
+    border: 1px solid #000;
+}
+</style>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script>
+	var url = window.location.pathname;
+	var filename = url.substring(url.lastIndexOf('/')+1),
+	    splits = filename.split("-"),
+        splits2 = splits[2].split(".");
+	
+	var titleName = splits[1] + "번째 챕터 " + splits2[0] + "번째 예제";
+	
+	document.getElementsByTagName('title')[0].innerHTML = getTitle();
+	
+	function getTitle() {
+		return titleName;
+	}
+</script>
+</head>
+<body>
+    <div id="elem">
+        <svg xmlns="http://www.w3.org/2000/svg" width="600" height="600">
+            <circle id="circ" width="10" height="10" r="10" fill="red">
+        </svg>
+    </div>
+    <script>
+    // 4장 숫자와 수학 연산 다루기
+    
+    // 주어진 너비와 높이의 페이지 요소 안에 가장 크게 표현할 수 있는 원의 중심 좌표와 반지름을 구해야해요~
+    
+    // 너비와 높이 중 더 작은 것을 2로 나누면 원의 반지금을 구할 수 있음!!!
+    // var circleRadius = Math.min(elementWidth, elementHeight) / 2;
+    
+    // 주어진 페이지 요소의 너비와 높이를 각각 2로 나누면 원의 중심 좌표를 구할 수 있음!!!
+    // var x = elementWidth / 2;
+    // var y = elementHeight / 2;
+    function compStyle(elemId, property) {
+        var elem = document.getElementById(elemId);
+        var style;
+        if(window.getComputedStyle) {
+            style = window.getComputedStyle(elem, null).getPropertyValue(property);
+        }else if(elem.currentStyle) {
+            style = elem.currentStyle[property];
+        }
+        return style;
+    }
+    
+    window.onload = function() {
+        var height = parseInt(compStyle("elem", "height"));
+        var width = parseInt(compStyle("elem", "width"));
+        var x = width / 2;
+        var y = height / 2;
+        var circleRadius = Math.min(width, height) / 2;
+        var circ = document.getElementById("circ");
+        circ.setAttribute("r", circleRadius);
+        circ.setAttribute("cx", x);
+        circ.setAttribute("cy", y);
+    }
+    </script>
+    </body>
+</html>

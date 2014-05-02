@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+<title></title>
+<meta name="description" content="study javascript">
+<style type="text/css">
+</style>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script>
+	var url = window.location.pathname;
+	var filename = url.substring(url.lastIndexOf('/')+1),
+	    splits = filename.split("-"),
+        splits2 = splits[2].split(".");
+	
+	var titleName = splits[1] + "번째 챕터 " + splits2[0] + "번째 예제";
+	
+	document.getElementsByTagName('title')[0].innerHTML = getTitle();
+	
+	function getTitle() {
+		return titleName;
+	}
+</script>
+</head>
+<html>
+<body>
+    <table id="table1">
+        <tr>
+            <td>Washington</td>
+            <td>145</td>
+        </tr>
+        <tr>
+            <td>Oregon</td>
+            <td>233</td>
+        </tr>
+        <tr>
+            <td>Missouri</td>
+            <td>833</td>
+        </tr>
+    </table>
+    <script>
+	// 4장 숫자와 수학 연산 다루기
+	
+	// 테이블에서 같은 열에 있는 모든 값을 구하고, 이 값을 숫자로 변환한 뒤 모두 더하고 싶어요~
+	
+	// 숫자값을 가지고 있는 열을 검색하여 숫자로 변환한 후 모든 숫자를 합산하면 됨!
+	
+	window.onload = function() {
+    	
+    	var sum = 0;
+    	
+    	var dataTable = document.getElementById("table1");
+    	
+    	// querySelector를 사용하여 두 번째 테이블 셀 모두 검색
+    	var cells = document.querySelectorAll("td + td");
+    	
+    	for(var i = 0; i < cells.length; i++) {
+        	sum += parseFloat(cells[i].firstChild.data);
+    	}
+    	
+    	// 테이블 끝까지 합산
+    	var newRow = document.createElement("tr");
+    	
+    	// 첫 번째 셀
+    	var fisrtCell = document.createElement("td");
+    	var firstCellText = document.createTextNode("Sum:");
+    	fisrtCell.appendChild(firstCellText);
+    	newRow.appendChild(fisrtCell);
+    	
+    	// 합산 결과를 두 번쨰 셀에 표시
+    	var secondCell = document.createElement("td");
+    	var secondCellText = document.createTextNode(sum)
+    	secondCell.appendChild(secondCellText);
+    	newRow.appendChild(secondCell);
+    	
+    	// 테이블에 새로운 행 추가
+    	dataTable.appendChild(newRow);
+    	
+	}
+	</script>
+</body>
+</html>

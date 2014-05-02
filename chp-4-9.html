@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta charset="utf-8">
+<head>
+<title></title>
+<meta name="description" content="study javascript">
+<style type="text/css">
+</style>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script>
+	var url = window.location.pathname;
+	var filename = url.substring(url.lastIndexOf('/')+1),
+	    splits = filename.split("-"),
+        splits2 = splits[2].split(".");
+	
+	var titleName = splits[1] + "번째 챕터 " + splits2[0] + "번째 예제";
+	
+	document.getElementsByTagName('title')[0].innerHTML = getTitle();
+	
+	function getTitle() {
+		return titleName;
+	}
+</script>
+</head>
+<body>
+    <script>
+    // 4장 숫자와 수학 연산 다루기
+    
+    // 주어진 원의 반지름과 각도로 표시된 호의 각으로 호의 길이를 구해야 해요~
+    
+    // Math.PI를 사용해서 각도를 라디안으로 변환하고 호의 길이를 구하는 공식에 대입하면 됨!!!
+    // 호의 각이 120도이고 반지름은 2일 때
+    var degrees = 120,
+        radius = 2;
+    var radians = degrees * (Math.PI / 180);
+    var arclength = radians * radius;
+    
+    console.log(arclength);
+    </script>
+    </body>
+</html>

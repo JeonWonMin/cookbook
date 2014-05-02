@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+<title></title>
+<meta name="description" content="study javascript">
+<style type="text/css">
+</style>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script>
+	var url = window.location.pathname;
+	var filename = url.substring(url.lastIndexOf('/')+1),
+	    splits = filename.split("-"),
+        splits2 = splits[2].split(".");
+	
+	var titleName = splits[1] + "번째 챕터 " + splits2[0] + "번째 예제";
+	
+	document.getElementsByTagName('title')[0].innerHTML = getTitle();
+	
+	function getTitle() {
+		return titleName;
+	}
+</script>
+</head>
+<html>
+<body>	<script>
+	// 4장 숫자와 수학 연산 다루기
+	
+	// 코드에서 증분 카운터를 만들고 유지하고 싶어요
+	// 숫자를 지역 또는 전역 변수로 정의하거나 객체의 속성으로 정의하고 코드를 실행할 때마다 변수의 값을 증가시키면 됨!
+    
+	</script>
+</body>
+</html>

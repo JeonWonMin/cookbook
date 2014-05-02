@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+<title></title>
+<meta name="description" content="study javascript">
+<style type="text/css">
+</style>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script>
+	var url = window.location.pathname;
+	var filename = url.substring(url.lastIndexOf('/')+1),
+	    splits = filename.split("-"),
+        splits2 = splits[2].split(".");
+	
+	var titleName = splits[1] + "번째 챕터 " + splits2[0] + "번째 예제";
+	
+	document.getElementsByTagName('title')[0].innerHTML = getTitle();
+	
+	function getTitle() {
+		return titleName;
+	}
+</script>
+</head>
+<html>
+<body>	<script>
+	// 4장 숫자와 수학 연산 다루기
+	
+	// 0부터 255 사이의 랜덤한 숫자를 생성해야 해요~
+	// Math 메서드를 조합해서 사용하면 됨! random 메서드를 사용해서 0부터 1사이의 랜덤한 숫자를 구한 후
+	// 256을 곱한후 floor메서드를 사용해서 정수로 만들어!
+	
+	var randomNumber = Math.floor(Math.random()*256);
+	console.log(randomNumber);
+    
+	</script>
+</body>
+</html>

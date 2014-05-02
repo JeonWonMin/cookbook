@@ -45,6 +45,7 @@
     
     window.onload = function() {
         document.getElementById("redball").onclick = stopStartElement;
+        console.log(typeof intervalId);
     }
     
     function stopStartElement() {
@@ -58,6 +59,7 @@
             }, 500);
         }else{
             clearInterval(intervalId);
+            console.log(typeof intervalId);
             intervalId = null;
         }
     }
